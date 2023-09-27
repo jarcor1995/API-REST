@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Obtener Nombre</title>
+</head>
+<body>
+    <input type="text" id="nombre-input" placeholder="Nombre">
+    
+    <script>
+        // Realizar una solicitud AJAX para obtener el nombre desde la API
+        $.get('/obtener-name', function(data) {
+            if (data.nombre) {
+                // Establecer el valor del input con el nombre obtenido
+                $('#nombre-input').val(data.nombre);
+            } else {
+                console.error('Nombre no encontrado');
+            }
+        });
+    </script>
+</body>
+</html>
